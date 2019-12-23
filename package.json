@@ -1,0 +1,14 @@
+{
+  "name": "safe-json-type",
+  "version": "0.0.0.Beta_1",
+  "description": "将json中不支持的Date和Bytes用安全的方法序列化，并在反序列化后找回对应的类型（而不是字符串）",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CaoMeiYouRen",
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}

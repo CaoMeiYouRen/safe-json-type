@@ -1,8 +1,24 @@
 {
   "name": "safe-json-type",
   "version": "0.0.1-beta",
+  "keywords": [
+    "json",
+    "safe-json"
+  ],
   "description": "将json中不支持的Date和Bytes(Buffer)用安全的方法序列化，并在反序列化后找回对应的类型（而不是字符串）",
   "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "homepage": "https://github.com/CaoMeiYouRen/safe-json-type",
+  "bugs": {
+    "url": "https://github.com/CaoMeiYouRen/safe-json-type/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CaoMeiYouRen/safe-json-type.git"
+  },
   "scripts": {
     "test": "mocha -r ts-node/register test/**/*.test.ts -R nyan",
     "deploy-beta": "npm publish --tag beta",

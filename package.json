@@ -1,7 +1,7 @@
 {
   "name": "safe-json-type",
-  "version": "0.0.0-beta-1",
-  "description": "将json中不支持的Date和Bytes用安全的方法序列化，并在反序列化后找回对应的类型（而不是字符串）",
+  "version": "0.0.0-beta",
+  "description": "将json中不支持的Date和Bytes(Buffer)用安全的方法序列化，并在反序列化后找回对应的类型（而不是字符串）",
   "main": "index.js",
   "scripts": {
     "test": "mocha -r ts-node/register test/**/*.test.ts -R nyan",
@@ -23,6 +23,8 @@
     "typescript": "^3.7.4"
   },
   "dependencies": {
+    "buffer": "^5.4.3",
+    "colors": "^1.4.0",
     "fast-safe-stringify": "^2.0.7",
     "parse-json": "^5.0.0"
   }

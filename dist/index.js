@@ -2,8 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fast_safe_stringify_1 = require("fast-safe-stringify");
 const parseJson = require("parse-json");
-class safeJsonType {
-    parse(str) {
+const buffer = require("buffer");
+const Buffer = buffer.Buffer;
+const colors = require("colors");
+class SafeJsonType {
+    static parse(str) {
         if (typeof str !== 'string') {
             throw new Error('Argument must be a string');
         }
@@ -16,25 +19,15 @@ class safeJsonType {
             throw error;
         }
     }
-    __parse(obj) {
-        switch (typeof obj) {
-            case 'string':
-            case 'number':
-            case 'boolean':
-            case 'undefined':
-            case 'bigint':
-                return obj;
-        }
-        if (obj === null) {
+    static __parse(obj) {
+        if (typeof obj !== 'object' || obj === null) {
             return obj;
         }
-        if (obj.__type) {
-            switch (obj.__type) {
-                case 'Date':
-                    return new Date(obj.iso);
-                case 'Bytes':
-                    return new Buffer(obj.iso, 'base64');
-            }
+        switch (obj.__type) {
+            case 'Date':
+                return new Date(obj.__value);
+            case 'Bytes':
+                return Buffer.from(obj.__value, 'base64');
         }
         let keys = Object.keys(obj);
         for (let i = 0; i < keys.length; i++) {
@@ -44,19 +37,11 @@ class safeJsonType {
         }
         return obj;
     }
-    stringify(obj, replacer, space) {
+    static stringify(obj, replacer, space) {
         return fast_safe_stringify_1.default(this.__stringify(obj), replacer, space);
     }
-    __stringify(obj) {
-        switch (typeof obj) {
-            case 'string':
-            case 'number':
-            case 'boolean':
-            case 'undefined':
-            case 'bigint':
-                return obj;
-        }
-        if (obj === null) {
+    static __stringify(obj) {
+        if (typeof obj !== 'object' || obj === null) {
             return obj;
         }
         if (obj instanceof String || obj instanceof Number || obj instanceof Boolean) {
@@ -65,22 +50,25 @@ class safeJsonType {
         if (obj instanceof Date) {
             return {
                 __type: 'Date',
-                iso: obj.toISOString()
+                __value: obj.toISOString()
             };
         }
         if (obj instanceof Buffer) {
             return {
                 __type: 'Bytes',
-                iso: obj.toString('base64')
+                __value: obj.toString('base64')
             };
         }
         let keys = Object.keys(obj);
         for (let i = 0; i < keys.length; i++) {
             let key = keys[i];
+            if (key === '__type') {
+                console.warn(colors.yellow('(safe-json-type) [warning] "__type" is a reserved field. Do not use it unless necessary'));
+            }
             let value = obj[key];
             obj[key] = this.__stringify(value);
         }
         return obj;
     }
 }
-exports.safeJsonType = safeJsonType;
+exports.SafeJsonType = SafeJsonType;

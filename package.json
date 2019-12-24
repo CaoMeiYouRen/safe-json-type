@@ -4,11 +4,26 @@
   "description": "将json中不支持的Date和Bytes用安全的方法序列化，并在反序列化后找回对应的类型（而不是字符串）",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha -r ts-node/register test/**/*.test.ts -R nyan",
     "deploy-beta": "npm publish --tag beta",
-    "deploy": "npm publish"
+    "deploy": "npm publish",
+    "watch": "tsc -w",
+    "build": "tsc"
   },
   "author": "CaoMeiYouRen",
-  "devDependencies": {},
-  "dependencies": {}
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^13.1.0",
+    "@types/parse-json": "^4.0.0",
+    "mocha": "^6.2.2",
+    "nyc": "^15.0.0",
+    "should": "^13.2.3",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "fast-safe-stringify": "^2.0.7",
+    "parse-json": "^5.0.0"
+  }
 }

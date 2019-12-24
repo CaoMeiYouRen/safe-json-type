@@ -37,9 +37,9 @@ class SafeJsonType {
         return obj;
     }
     static stringify(obj, replacer, space) {
-        return fast_safe_stringify_1.default(this.__stringify(obj), replacer, space);
+        return fast_safe_stringify_1.default(this.toSafeJson(obj), replacer, space);
     }
-    static __stringify(obj) {
+    static toSafeJson(obj) {
         if (typeof obj !== 'object' || obj === null) {
             return obj;
         }
@@ -64,7 +64,7 @@ class SafeJsonType {
             if (key === '__type') {
                 console.warn(colors.yellow('(safe-json-type) [warning] "__type" is a reserved field. Do not use it unless necessary'));
             }
-            obj[key] = this.__stringify(obj[key]);
+            obj[key] = this.toSafeJson(obj[key]);
         }
         return obj;
     }

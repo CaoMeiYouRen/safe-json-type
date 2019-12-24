@@ -32,8 +32,7 @@ class SafeJsonType {
         let keys = Object.keys(obj);
         for (let i = 0; i < keys.length; i++) {
             let key = keys[i];
-            let value = obj[key];
-            obj[key] = this.__parse(value);
+            obj[key] = this.__parse(obj[key]);
         }
         return obj;
     }
@@ -65,8 +64,7 @@ class SafeJsonType {
             if (key === '__type') {
                 console.warn(colors.yellow('(safe-json-type) [warning] "__type" is a reserved field. Do not use it unless necessary'));
             }
-            let value = obj[key];
-            obj[key] = this.__stringify(value);
+            obj[key] = this.__stringify(obj[key]);
         }
         return obj;
     }

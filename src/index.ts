@@ -37,9 +37,7 @@ export class SafeJsonType {
         let keys = Object.keys(obj) //数组或对象
         for (let i = 0; i < keys.length; i++) {//遍历所有key
             let key = keys[i]
-
-            let value = obj[key]
-            obj[key] = this.__parse(value)//递归
+            obj[key] = this.__parse(obj[key])//递归
         }
         return obj
     }
@@ -82,8 +80,7 @@ export class SafeJsonType {
             if (key === '__type') {//对使用了保留字段的进行提示
                 console.warn(colors.yellow('(safe-json-type) [warning] "__type" is a reserved field. Do not use it unless necessary'))
             }
-            let value = obj[key]
-            obj[key] = this.__stringify(value)//递归
+            obj[key] = this.__stringify(obj[key])//递归
         }
         return obj
     }

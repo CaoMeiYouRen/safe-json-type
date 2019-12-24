@@ -124,7 +124,18 @@ console.log(obj);
 */
 ```
 
+## 注意事项
 
+由于在序列化时使用了`__type`作为关键字来标记类型，因此不建议在对象中使用`__type`字段。如果有使用将会有警告。`__value`字段无所谓所以就不提醒了。
+
+```typescript
+let obj = {
+    __type: 'MyType',
+    __value: 'my_value'
+}
+let str = SafeJsonType.stringify(obj);
+//(safe-json-type) [warning] "__type" is a reserved field. Do not use it unless necessary
+```
 
 ## 后记
 

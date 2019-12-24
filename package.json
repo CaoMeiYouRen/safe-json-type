@@ -28,6 +28,7 @@
   },
   "author": "CaoMeiYouRen",
   "devDependencies": {
+    "@types/clone": "^0.1.30",
     "@types/mocha": "^5.2.7",
     "@types/node": "^13.1.0",
     "@types/parse-json": "^4.0.0",

@@ -52,9 +52,18 @@ export class SafeJsonType {
      * @returns
      */
     static stringify(obj: any, replacer?: (key: string, value: any) => any, space?: string | number) {
-        return safeStringify(this.__stringify(obj), replacer, space)
+        return safeStringify(this.toSafeJson(obj), replacer, space)
     }
-    private static __stringify(obj: any) {
+    /**
+     *转换普通对象到SafeJson
+     *
+     * @author CaoMeiYouRen
+     * @date 2019-12-24
+     * @static
+     * @param {*} obj
+     * @returns
+     */
+    static toSafeJson(obj: any) {
         if (typeof obj !== 'object' || obj === null) {//类型不为object的或类型为null的都直接返回
             return obj
         }
@@ -80,7 +89,7 @@ export class SafeJsonType {
             if (key === '__type') {//对使用了保留字段的进行提示
                 console.warn(colors.yellow('(safe-json-type) [warning] "__type" is a reserved field. Do not use it unless necessary'))
             }
-            obj[key] = this.__stringify(obj[key])//递归
+            obj[key] = this.toSafeJson(obj[key])//递归
         }
         return obj
     }

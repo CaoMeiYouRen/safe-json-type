@@ -17,27 +17,37 @@ export class SafeJsonType {
             throw new Error('Argument must be a string') //参数必须为字符串
         }
         try {
-            let obj = parseJson(str)
-            return this.__parse(obj)
+            return this.toObject(parseJson(str))
         } catch (error) {
             error.fileName = __filename
             throw error
         }
     }
-    private static __parse(obj: any) {
+    /**
+     *转换SafeJson到普通对象
+     *
+     * @author CaoMeiYouRen
+     * @date 2019-12-25
+     * @static
+     * @param {*} obj
+     * @returns
+     */
+    static toObject(obj: any) {
         if (typeof obj !== 'object' || obj === null) {//类型不为object的或类型为null的都直接返回
             return obj
         }
-        switch (obj.__type) {//obj存在__type属性，认为是safe-json（上面已经排除了null和undefined）
-            case 'Date':
-                return new Date(obj.__value)
-            case 'Bytes':
-                return Buffer.from(obj.__value, 'base64')
+        if (obj.__type && obj.__value) {
+            switch (obj.__type) {//obj存在__type属性，认为是safe-json（上面已经排除了null和undefined）
+                case 'Date':
+                    return new Date(obj.__value)
+                case 'Bytes':
+                    return Buffer.from(obj.__value, 'base64')
+            }
         }
         let keys = Object.keys(obj) //数组或对象
         for (let i = 0; i < keys.length; i++) {//遍历所有key
             let key = keys[i]
-            obj[key] = this.__parse(obj[key])//递归
+            obj[key] = this.toObject(obj[key])//递归
         }
         return obj
     }
@@ -54,6 +64,15 @@ export class SafeJsonType {
     static stringify(obj: any, replacer?: (key: string, value: any) => any, space?: string | number) {
         return safeStringify(this.toSafeJson(obj), replacer, space)
     }
+
+    /**
+ * , plugin?: (condition: boolean, obj: any) => {
+        __type: string,
+        __value: any
+    }
+ *
+ *
+*/
     /**
      *转换普通对象到SafeJson
      *

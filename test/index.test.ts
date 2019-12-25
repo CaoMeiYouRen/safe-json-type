@@ -53,4 +53,14 @@ describe('SafeJsonType', () => {
         (typeof obj2.__type).should.equal('string');
         (typeof obj2.__value).should.equal('string');
     })
+    it('测试缺失__value字段', () => {
+        let obj = {
+            __type: 'Date',
+        }
+        let str = SafeJsonType.stringify(obj);
+        (typeof str).should.equal('string');
+        //str.should.equal('')
+        let obj2 = SafeJsonType.parse(str);
+        (typeof obj2.__type).should.equal('string');
+    })
 })

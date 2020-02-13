@@ -1,6 +1,6 @@
 import { SafeJsonPluginDate } from './plugins/Date'
 import { SafeJsonPlugin, SafeJson } from './interfaces'
-export default class SafeJsonType {
+export class SafeJsonType {
     private static plugins: SafeJsonPlugin<SafeJson, any>[] = []
     /**
      *使用插件，只要初始化一次即可，插件不会去重，所以请勿重复初始化

@@ -1,8 +1,26 @@
+## [0.2.2-beta](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.2.1-beta...v0.2.2-beta) (2020-02-13)
+
+
+### ♻ Code Refactoring | 代码重构
+
+* 修改了SafeJsonType类的导出方式 ([c6b3034](https://github.com/CaoMeiYouRen/safe-json-type/commit/c6b3034))
+
+
+### 📝 Documentation | 文档
+
+* 更新了日志 ([a4cb558](https://github.com/CaoMeiYouRen/safe-json-type/commit/a4cb558))
+* 更新日志 ([6c64fb5](https://github.com/CaoMeiYouRen/safe-json-type/commit/6c64fb5))
+
+
+
 ## [0.2.1-beta](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.2.0-beta...v0.2.1-beta) (2020-02-13)
+
 
 ### ♻ Code Refactoring | 代码重构
 
 * 优化了类导出方式、文档、webpack配置等 ([4a65fc8](https://github.com/CaoMeiYouRen/safe-json-type/commit/4a65fc8))
+
+
 
 # [0.2.0-beta](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.1.0-beta...v0.2.0-beta) (2020-02-13)
 

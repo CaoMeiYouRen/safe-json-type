@@ -11,16 +11,18 @@
     "test": "mocha -r ts-node/register test/**/*.test.ts -R nyan",
     "deploy-beta": "npm run test && npm publish --tag beta",
     "deploy": "npm run test && npm publish",
-    "watch": "tsc -w",
-    "build": "tsc",
+    "build": "webpack --config ./webpack.config.js",
+    "prebuild": "rimraf dist",
     "commit": "git cz",
     "release": "release-it",
-    "ver": "standard-version"
+    "ver": "standard-version",
+    "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0  -n ./changelog-option.js"
   },
+  "browser": "dist/browser.min.js",
+  "jsdelivr": "dist/browser.min.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "src",
     "dist",
     "yarn.lock"
   ],
@@ -41,6 +43,7 @@
     "@types/mocha": "^5.2.7",
     "@types/node": "^13.1.0",
     "@types/parse-json": "^4.0.0",
+    "rimraf": "^3.0.2",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
     "mocha": "^6.2.2",
@@ -50,7 +53,10 @@
     "standard-version": "^7.1.0",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.5.4",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {
     "buffer": "^5.4.3",

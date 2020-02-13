@@ -12,7 +12,7 @@ json字段支持以下类型：
 -   `Array` 数组
 -   `Object` 对象
 -   `Date` 日期
--   `Bytes` (Buffer)base64 编码的二进制数据
+-   `Bytes` (Buffer)base64 编码的二进制数据【浏览器端默认不支持，但在模块化构建中支持】
 -   `Null` 空值
 
 ## 安装
@@ -170,7 +170,7 @@ export class SafeJsonPluginDate implements SafeJsonPlugin<SafeJsonDate, Date> {
 
 ## 注意事项
 
-由于在序列化时使用了`__type`作为关键字来标记类型，因此不建议在对象中使用`__type`字段。如果有使用将会有警告。`__value`字段无所谓所以就不提醒了。
+1.  由于在序列化时使用了`__type`作为关键字来标记类型，因此不建议在对象中使用`__type`字段。如果有使用将会有警告。`__value`字段无所谓所以就不提醒了。
 
 ```typescript
 let obj = {
@@ -180,6 +180,8 @@ let obj = {
 let str = SafeJsonType.stringify(obj);
 //(safe-json-type) [warning] "__type" is a reserved field. Do not use it unless necessary
 ```
+
+2.  本项目没有使用node专属模块，所以也可以在浏览器运行。压缩后的文件见dist/browser.min.js。出于包大小考虑移除了所有非原生依赖，因此当直接通过script引用browser.min.js时不支持buffer对象，如有需要可在模块化构建中使用
 
 ## 后记
 

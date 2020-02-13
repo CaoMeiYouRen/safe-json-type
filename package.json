@@ -14,7 +14,8 @@
     "watch": "tsc -w",
     "build": "tsc",
     "commit": "git cz",
-    "release": "release-it"
+    "release": "release-it",
+    "ver": "standard-version"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

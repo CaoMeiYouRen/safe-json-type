@@ -1,9 +1,84 @@
 import safeStringify from 'fast-safe-stringify'
 import parseJson = require('parse-json')
-import buffer = require('buffer')
-const Buffer = buffer.Buffer
 import colors = require('colors')
+import { SafeJsonPluginDate, SafeJsonPluginBuffer } from './plugins'
+import { SafeJsonPlugin, SafeJson } from './interfaces'
 export class SafeJsonType {
+    private static plugins: SafeJsonPlugin<SafeJson, any>[] = []
+    /**
+     *使用插件，只要初始化一次即可，插件不会去重，所以请勿重复初始化
+     *
+     * @author CaoMeiYouRen
+     * @date 2020-02-13
+     * @static
+     * @param {SafeJsonPlugin<SafeJson, any>} plugin
+     */
+    static use(plugin: SafeJsonPlugin<SafeJson, any>) {
+        this.plugins.push(plugin)
+    }
+
+    /**
+     *转换SafeJson到普通对象
+     *
+     * @author CaoMeiYouRen
+     * @date 2019-12-25
+     * @static
+     * @param {*} obj
+     * @returns
+     */
+    static toObject(obj: any) {
+        if (typeof obj !== 'object' || obj === null) {//类型不为object的或类型为null的都直接返回
+            return obj
+        }
+        if (obj.__type) {//obj存在__type属性，认为是safe-json（上面已经排除了null和undefined）
+            for (let i = 0; i < this.plugins.length; i++) {
+                const plugin = this.plugins[i]
+                if (plugin.type === obj.__type) {//匹配到对应类，反序列化
+                    return plugin.deserialize(obj)
+                }
+            }
+        }
+        let keys = Object.keys(obj) //数组或对象
+        for (let i = 0; i < keys.length; i++) {//遍历所有key
+            let key = keys[i]
+            obj[key] = this.toObject(obj[key])//递归
+        }
+        return obj
+    }
+
+    /**
+     *转换普通对象到SafeJson
+     *
+     * @author CaoMeiYouRen
+     * @date 2019-12-24
+     * @static
+     * @param {*} obj
+     * @returns
+     */
+    static toSafeJson(obj: any) {
+        if (typeof obj !== 'object' || obj === null) {//类型不为object的或类型为null的都直接返回
+            return obj
+        }
+        //基本数据类型的封装类也返回本身
+        if (obj instanceof String || obj instanceof Number || obj instanceof Boolean) {
+            return obj
+        }
+        for (let i = 0; i < this.plugins.length; i++) {
+            const plugin = this.plugins[i]
+            if (plugin.condition(obj)) {//匹配到对应类，序列化
+                return plugin.serialize(obj)
+            }
+        }
+        let keys = Object.keys(obj) //数组或对象
+        for (let i = 0; i < keys.length; i++) {//遍历所有key
+            let key = keys[i]
+            if (key === '__type') {//对使用了保留字段的进行提示
+                console.warn(colors.yellow('(safe-json-type) [warning] "__type" is a reserved field. Don\'t use it unless necessary'))
+            }
+            obj[key] = this.toSafeJson(obj[key])//递归
+        }
+        return obj
+    }
     /**
      *解析json对象
      *
@@ -24,34 +99,6 @@ export class SafeJsonType {
         }
     }
     /**
-     *转换SafeJson到普通对象
-     *
-     * @author CaoMeiYouRen
-     * @date 2019-12-25
-     * @static
-     * @param {*} obj
-     * @returns
-     */
-    static toObject(obj: any) {
-        if (typeof obj !== 'object' || obj === null) {//类型不为object的或类型为null的都直接返回
-            return obj
-        }
-        if (obj.__type && obj.__value) {
-            switch (obj.__type) {//obj存在__type属性，认为是safe-json（上面已经排除了null和undefined）
-                case 'Date':
-                    return new Date(obj.__value)
-                case 'Bytes':
-                    return Buffer.from(obj.__value, 'base64')
-            }
-        }
-        let keys = Object.keys(obj) //数组或对象
-        for (let i = 0; i < keys.length; i++) {//遍历所有key
-            let key = keys[i]
-            obj[key] = this.toObject(obj[key])//递归
-        }
-        return obj
-    }
-    /**
      *序列化json对象
      *
      * @author CaoMeiYouRen
@@ -64,52 +111,7 @@ export class SafeJsonType {
     static stringify(obj: any, replacer?: (key: string, value: any) => any, space?: string | number) {
         return safeStringify(this.toSafeJson(obj), replacer, space)
     }
-
-    /**
- * , plugin?: (condition: boolean, obj: any) => {
-        __type: string,
-        __value: any
-    }
- *
- *
-*/
-    /**
-     *转换普通对象到SafeJson
-     *
-     * @author CaoMeiYouRen
-     * @date 2019-12-24
-     * @static
-     * @param {*} obj
-     * @returns
-     */
-    static toSafeJson(obj: any) {
-        if (typeof obj !== 'object' || obj === null) {//类型不为object的或类型为null的都直接返回
-            return obj
-        }
-        //基本数据类型的封装类也返回本身
-        if (obj instanceof String || obj instanceof Number || obj instanceof Boolean) {
-            return obj
-        }
-        if (obj instanceof Date) {//序列化Date类型
-            return {
-                __type: 'Date',
-                __value: obj.toISOString()
-            }
-        }
-        if (obj instanceof Buffer) { //序列化Buffer类型
-            return {
-                __type: 'Bytes',
-                __value: obj.toString('base64')
-            }
-        }
-        let keys = Object.keys(obj) //数组或对象
-        for (let i = 0; i < keys.length; i++) {//遍历所有key
-            let key = keys[i]
-            if (key === '__type') {//对使用了保留字段的进行提示
-                console.warn(colors.yellow('(safe-json-type) [warning] "__type" is a reserved field. Do not use it unless necessary'))
-            }
-            obj[key] = this.toSafeJson(obj[key])//递归
-        }
-        return obj
-    }
 }
+
+SafeJsonType.use(new SafeJsonPluginDate())
+SafeJsonType.use(new SafeJsonPluginBuffer())

@@ -1,6 +1,6 @@
 {
   "name": "safe-json-type",
-  "version": "0.0.6-beta",
+  "version": "0.0.6",
   "keywords": [
     "json",
     "safe-json"
@@ -44,7 +44,9 @@
     "cz-conventional-changelog": "^3.0.2",
     "mocha": "^6.2.2",
     "nyc": "^15.0.0",
+    "release-it": "^12.4.3",
     "should": "^13.2.3",
+    "standard-version": "^7.1.0",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.4"
@@ -53,8 +55,7 @@
     "buffer": "^5.4.3",
     "colors": "^1.4.0",
     "fast-safe-stringify": "^2.0.7",
-    "parse-json": "^5.0.0",
-    "release-it": "^12.4.3"
+    "parse-json": "^5.0.0"
   },
   "config": {
     "commitizen": {

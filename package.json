@@ -14,7 +14,7 @@
     "build": "tsc -p tsconfig.build.json && npm run browser",
     "browser": "webpack --config ./webpack.config.js",
     "prebuild": "rimraf dist",
-    "commit": "git cz",
+    "commit": "git add . && git cz",
     "release": "release-it",
     "ver": "standard-version",
     "changelog": "conventional-changelog -n ./changelog-option.js -p custom-config -i CHANGELOG.md -s -r 0"

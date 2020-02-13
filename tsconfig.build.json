@@ -1,0 +1,13 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "removeComments": true,
+    },
+    "exclude": [
+        "src/browser.ts",
+        "node_modules",
+        "test",
+        "dist",
+        "**/*spec.ts"
+    ]
+}

@@ -15,16 +15,14 @@ module.exports = {
                 commit.type = '🐛 Bug Fixes | Bug 修复'
             } else if (commit.type === 'perf') {
                 commit.type = '⚡ Performance Improvements | 性能优化'
+            } else if (commit.type === 'refactor') {
+                commit.type = '♻ Code Refactoring | 代码重构'
             } else if (commit.type === 'revert' || commit.revert) {
                 commit.type = '⏪ Reverts | 回退'
-            } else if (discard) {
-                return
             } else if (commit.type === 'docs') {
                 commit.type = '📝 Documentation | 文档'
             } else if (commit.type === 'style') {
                 commit.type = '💄 Styles | 风格'
-            } else if (commit.type === 'refactor') {
-                commit.type = '♻ Code Refactoring | 代码重构'
             } else if (commit.type === 'test') {
                 commit.type = '✅ Tests | 测试'
             } else if (commit.type === 'build') {
@@ -33,8 +31,9 @@ module.exports = {
                 commit.type = '🔧 Continuous Integration | CI 配置'
             } else if (commit.type === 'chore') {
                 commit.type = '🎫 Chores | 其他更新'
+            } else if (discard || !commit.type) {
+                return
             }
-
 
             if (commit.scope === '*') {
                 commit.scope = ''

@@ -19,8 +19,6 @@ module.exports = {
                 commit.type = '♻ Code Refactoring | 代码重构'
             } else if (commit.type === 'revert' || commit.revert) {
                 commit.type = '⏪ Reverts | 回退'
-            } else if (commit.type === 'docs') {
-                commit.type = '📝 Documentation | 文档'
             } else if (commit.type === 'style') {
                 commit.type = '💄 Styles | 风格'
             } else if (commit.type === 'test') {
@@ -33,6 +31,8 @@ module.exports = {
                 commit.type = '🎫 Chores | 其他更新'
             } else if (discard || !commit.type) {
                 return
+            } else if (commit.type === 'docs') {
+                commit.type = '📝 Documentation | 文档'
             }
 
             if (commit.scope === '*') {

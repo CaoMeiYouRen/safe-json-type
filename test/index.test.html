@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+    <script src="../dist/browser.min.js"></script>
+    <title>浏览器端测试</title>
+    <style>
+        #app {
+            white-space: pre;
+        }
+    </style>
+    <script>
+        let obj = {
+            num: 1024,
+            str: 'hello world 你好世界',
+            bool: true,
+            undef: undefined,
+            nil: null,
+            Num: new Number(-2048),
+            Str: new String('ok'),
+            Bool: new Boolean(false),
+            date: new Date('2019-01-01T00:00:00Z'),
+            arr: [
+                new Date('2019-01-01T00:00:00Z'),
+            ],
+            obj: {
+                num: 1024,
+                str: 'hello world 你好世界',
+                bool: true,
+                date: new Date('2019-01-01T00:00:00Z'),
+            }
+        }
+        console.log(SafeJsonType)
+        let str = ''
+        str = SafeJsonType.SafeJsonType.stringify(obj, null, 4)
+        console.log(str);
+        window.onload = () => {
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    str
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <noscript>
+        <strong>肥肠抱歉，本网站只有启用JavaScript才能正常使用</strong>
+    </noscript>
+    <div id="app">{{str}}</div>
+</body>
+
+</html>

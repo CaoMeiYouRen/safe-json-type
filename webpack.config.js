@@ -1,6 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 module.exports = {
     mode: 'production',
     entry: path.join(__dirname, 'src', 'browser.ts'),
@@ -10,7 +8,7 @@ module.exports = {
             amd: 'safe-json-type',
             commonjs: 'safe-json-type'
         },
-        libraryTarget: 'umd2',
+        libraryTarget: 'umd',
         path: path.join(__dirname, 'dist'),
         filename: 'browser.min.js'
     },

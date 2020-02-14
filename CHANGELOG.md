@@ -1,3 +1,13 @@
+## [0.2.4-beta](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.2.3-beta.0...v0.2.4-beta) (2020-02-14)
+
+
+### 🎫 Chores | 其他更新
+
+* 优化了package.json ([e5dccca](https://github.com/CaoMeiYouRen/safe-json-type/commit/e5dccca))
+* 尝试修改发布方式 ([72480fb](https://github.com/CaoMeiYouRen/safe-json-type/commit/72480fb))
+
+
+
 ## [0.2.3-beta.0](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.2.3-beta...v0.2.3-beta.0) (2020-02-14)
 
 

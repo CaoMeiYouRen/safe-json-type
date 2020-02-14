@@ -170,7 +170,7 @@ export class SafeJsonPluginDate implements SafeJsonPlugin<SafeJsonDate, Date> {
 
 ## 注意事项
 
-1.  由于在序列化时使用了`__type`作为关键字来标记类型，因此不建议在对象中使用`__type`字段。如果有使用将会有警告。`__value`字段无所谓所以就不提醒了。
+1.  由于在序列化时使用了`__type`作为关键字来标记类型，因此不建议在对象中使用`__type`字段。如果有使用将会有警告【但不会报错】。
 
 ```typescript
 let obj = {
@@ -183,7 +183,7 @@ let str = SafeJsonType.stringify(obj);
 
 2.  本项目没有使用node专属模块，所以也可以在浏览器运行。压缩后的文件见dist/browser.min.js。出于包大小考虑移除了所有非原生依赖，因此当直接通过script引用browser.min.js时不支持buffer对象，如有需要可在模块化构建中使用。
 
-    在浏览器中使用```SafeJsonType.SafeJsonType.stringify(obj)```来调用
+    直接通过引用browser.min.js时使用```SafeJsonType.SafeJsonType.stringify(obj)```来调用【前一个SafeJsonType是命名空间，后一个是类名，日后可能会在同一个命名空间下导出多个类】
 
 ## 后记
 
@@ -195,4 +195,4 @@ let str = SafeJsonType.stringify(obj);
 
 另外，也是搜索过其他关于json传输相关的包，例如serialize-javascript。但这玩意儿有个问题，那就是序列化出来的东西都不符合json规范了，若后端采用其他语言编写，例如java，那么对这个数据处理显然是很麻烦的。而本人这个包，序列化后依旧符合json规范，后端采用其他语言编写也可以用同样的方法解析。
 
-对于其他数据类型，例如Map、Set、RegExp也在考虑中，不过必要性没那么大，以后有空会考虑在之后的版本中加入支持。
+对于其他数据类型，例如Map、Set、RegExp也在考虑中，不过必要性没那么大，以后有空会考虑在之后的版本中加入支持。【目前建议通过编写插件的方式来实现】

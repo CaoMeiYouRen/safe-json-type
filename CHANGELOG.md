@@ -1,3 +1,12 @@
+## [0.2.3-beta.0](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.2.3-beta...v0.2.3-beta.0) (2020-02-14)
+
+
+### 🎫 Chores | 其他更新
+
+* **release:** 0.2.3-beta.0 ([f750c10](https://github.com/CaoMeiYouRen/safe-json-type/commit/f750c10))
+
+
+
 ## [0.2.3-beta](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.2.2-beta...v0.2.3-beta) (2020-02-14)
 
 

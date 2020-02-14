@@ -1,9 +1,3 @@
-# Changelog
-
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
-
-### [0.2.3-beta.0](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.2.3-beta...v0.2.3-beta.0) (2020-02-14)
-
 ## [0.2.3-beta](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.2.2-beta...v0.2.3-beta) (2020-02-14)
 
 

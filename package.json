@@ -1,6 +1,6 @@
 {
   "name": "safe-json-type",
-  "version": "0.2.3-beta.0",
+  "version": "0.2.3-beta",
   "keywords": [
     "json",
     "safe-json"
@@ -15,9 +15,9 @@
     "browser": "webpack --config ./webpack.config.js",
     "prebuild": "rimraf dist",
     "commit": "git add . && git cz",
-    "release-it": "release-it --config ./.release-it.js",
-    "release": "standard-version --prerelease beta",
-    "changelog": "conventional-changelog -n ./changelog-option.js -p custom-config -i CHANGELOG.md -s -r 0"
+    "release": "release-it --config ./.release-it.js",
+    "changelog": "conventional-changelog -n ./changelog-option.js -p custom-config -i CHANGELOG.md -s -r 0",
+    "postchangelog": "npm run commit"
   },
   "browser": "dist/browser.min.js",
   "jsdelivr": "dist/browser.min.js",

@@ -4946,10 +4946,10 @@ safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   resolved "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
   integrity sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==
 
-safe-json-type-plugins@^0.1.1-beta:
-  version "0.1.1-beta"
-  resolved "https://registry.npmjs.org/safe-json-type-plugins/-/safe-json-type-plugins-0.1.1-beta.tgz#0d42cdb2a93f8137000e93f07d10b95c1eb92b29"
-  integrity sha512-7RY9AapOJhjQnMC/JQLvVHBfih+ZEvJ5Re5HXT7bolFJ/DvF8abF1AqS4JN3DooKDWich8QBJY51JgpBtFWn9A==
+safe-json-type-plugins@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/safe-json-type-plugins/-/safe-json-type-plugins-1.0.0.tgz#de91424e6474ffaa13058d59b1bfc723b83f5fb2"
+  integrity sha512-2s6XDtf7RdYxlXL9VxO9qK2Xy+pn0ED1TktCf6gf3LlIM7skqn/5Vee3SdNtOmvZjtS+sMLVkzIH5cBx6KplBg==
   dependencies:
     buffer "^5.4.3"
 

@@ -4,7 +4,6 @@
         "removeComments": true,
     },
     "exclude": [
-        "src/browser.ts",
         "node_modules",
         "test",
         "dist",

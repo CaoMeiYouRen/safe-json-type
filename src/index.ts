@@ -1,8 +1,7 @@
 import safeStringify from 'fast-safe-stringify'
 import parseJson = require('parse-json')
 import colors = require('colors')
-import { SafeJsonPluginDate, SafeJsonPluginBuffer } from './plugins'
-import { SafeJsonPlugin, SafeJson } from './interfaces'
+import { SafeJsonPluginDate, SafeJsonPluginBuffer, SafeJsonPlugin, SafeJson } from 'safe-json-type-plugins'
 export class SafeJsonType {
     private static plugins: SafeJsonPlugin<SafeJson, any>[] = []
     /**
@@ -117,6 +116,3 @@ export class SafeJsonType {
 
 SafeJsonType.use(new SafeJsonPluginDate())
 SafeJsonType.use(new SafeJsonPluginBuffer())
-
-export * from './interfaces'
-export * from './plugins'

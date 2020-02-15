@@ -126,12 +126,16 @@ console.log(obj);
 
 ## 插件化
 
+目前自带依赖的插件[safe-json-type-plugins](https://github.com/CaoMeiYouRen/safe-json-type-plugins)
+
+如果后续有其他人想要开发新的插件，可以参考一下。命名上建议以 safe-json-type-plugin-xxxx 的格式，其中xxxx就是指定的格式。
+
 新版本中支持通过插件来对Date、Buffer之外的数据类型进行序列化和反序列化
 
 例如 Date 的插件如下，只需要实现SafeJsonPlugin接口即可，最后再调用 ```SafeJsonType.use(new SafeJsonPluginDate())```即可
 
 ```typescript
-import { SafeJsonPlugin, SafeJson } from '../interfaces'
+import { SafeJsonPlugin, SafeJson } from 'safe-json-type-plugins'
 
 export class SafeJsonDate implements SafeJson {
     __type: 'Date'

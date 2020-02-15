@@ -1,5 +1,4 @@
-import { SafeJsonPluginDate } from './plugins/Date'
-import { SafeJsonPlugin, SafeJson } from './interfaces'
+import { SafeJsonPluginDate ,SafeJsonPlugin, SafeJson } from 'safe-json-type-plugins/dist/browser'
 export class SafeJsonType {
     private static plugins: SafeJsonPlugin<SafeJson, any>[] = []
     /**
@@ -111,6 +110,3 @@ export class SafeJsonType {
 }
 
 SafeJsonType.use(new SafeJsonPluginDate())
-
-export * from './interfaces'
-export * from './plugins/Date'

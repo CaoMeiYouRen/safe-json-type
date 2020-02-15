@@ -1,9 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const fast_safe_stringify_1 = require("fast-safe-stringify");
-const parseJson = require("parse-json");
-const colors = require("colors");
-const safe_json_type_plugins_1 = require("safe-json-type-plugins");
+const browser_1 = require("safe-json-type-plugins/dist/browser");
 class SafeJsonType {
     static use(plugin) {
         this.plugins.push(plugin);
@@ -44,7 +41,7 @@ class SafeJsonType {
         for (let i = 0; i < keys.length; i++) {
             let key = keys[i];
             if (key === '__type') {
-                console.warn(colors.yellow('(safe-json-type) [warning] "__type" is a reserved field. Don\'t use it unless necessary'));
+                console.warn('(safe-json-type) [warning] "__type" is a reserved field. Don\'t use it unless necessary');
             }
             obj[key] = this.toSafeJson(obj[key]);
         }
@@ -55,7 +52,7 @@ class SafeJsonType {
             throw new Error('Argument must be a string');
         }
         try {
-            return this.toObject(parseJson(str));
+            return this.toObject(JSON.parse(str));
         }
         catch (error) {
             error.fileName = __filename;
@@ -63,10 +60,9 @@ class SafeJsonType {
         }
     }
     static stringify(obj, replacer, space) {
-        return fast_safe_stringify_1.default(this.toSafeJson(obj), replacer, space);
+        return JSON.stringify(this.toSafeJson(obj), replacer, space);
     }
 }
 exports.SafeJsonType = SafeJsonType;
 SafeJsonType.plugins = [];
-SafeJsonType.use(new safe_json_type_plugins_1.SafeJsonPluginDate());
-SafeJsonType.use(new safe_json_type_plugins_1.SafeJsonPluginBuffer());
+SafeJsonType.use(new browser_1.SafeJsonPluginDate());

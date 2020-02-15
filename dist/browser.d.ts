@@ -1,4 +1,4 @@
-import { SafeJsonPlugin, SafeJson } from './interfaces';
+import { SafeJsonPlugin, SafeJson } from 'safe-json-type-plugins/dist/browser';
 export declare class SafeJsonType {
     private static plugins;
     /**
@@ -51,5 +51,3 @@ export declare class SafeJsonType {
      */
     static stringify(obj: any, replacer?: (key: string, value: any) => any, space?: string | number): string;
 }
-export * from './interfaces';
-export * from './plugins/Date';

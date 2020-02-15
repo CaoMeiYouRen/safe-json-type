@@ -1,3 +1,16 @@
+# [0.3.0-beta](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.2.6-beta...v0.3.0-beta) (2020-02-15)
+
+
+### ♻ Code Refactoring | 代码重构
+
+* 移除了内置的插件，改为了safe-json-type-plugins依赖，更加灵活。同时修复了引用browser出错的问题 ([39febbe](https://github.com/CaoMeiYouRen/safe-json-type/commit/39febbe))
+
+
+
+## [0.2.6-beta](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.2.5-beta...v0.2.6-beta) (2020-02-15)
+
+
+
 ## [0.2.5-beta](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.2.4-beta...v0.2.5-beta) (2020-02-15)
 
 

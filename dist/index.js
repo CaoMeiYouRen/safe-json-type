@@ -1,4 +1,7 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
 const fast_safe_stringify_1 = require("fast-safe-stringify");
 const parseJson = require("parse-json");
@@ -70,3 +73,4 @@ exports.SafeJsonType = SafeJsonType;
 SafeJsonType.plugins = [];
 SafeJsonType.use(new plugins_1.SafeJsonPluginDate());
 SafeJsonType.use(new plugins_1.SafeJsonPluginBuffer());
+__export(require("./plugins"));

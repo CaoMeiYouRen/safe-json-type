@@ -117,3 +117,6 @@ export class SafeJsonType {
 
 SafeJsonType.use(new SafeJsonPluginDate())
 SafeJsonType.use(new SafeJsonPluginBuffer())
+
+export * from './interfaces'
+export * from './plugins'

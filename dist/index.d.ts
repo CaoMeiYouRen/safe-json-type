@@ -51,3 +51,5 @@ export declare class SafeJsonType {
      */
     static stringify(obj: any, replacer?: (key: string, value: any) => any, space?: string | number): string;
 }
+export * from './interfaces';
+export * from './plugins';

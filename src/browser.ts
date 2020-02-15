@@ -111,3 +111,6 @@ export class SafeJsonType {
 }
 
 SafeJsonType.use(new SafeJsonPluginDate())
+
+export * from './interfaces'
+export * from './plugins/Date'

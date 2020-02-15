@@ -9,8 +9,8 @@
   "description": "将json中不支持的Date和Bytes(Buffer)用安全的方法序列化，并在反序列化后找回对应的类型（而不是字符串）",
   "scripts": {
     "test": "mocha -r ts-node/register test/**/*.test.ts -R nyan",
-    "deploy-beta": "npm run test && npm publish --tag beta",
-    "deploy": "npm run test && npm publish",
+    "deploy-beta": "npm run test && nrm use npm && npm publish --tag beta",
+    "deploy": "npm run test && nrm use npm && npm publish",
     "build": "tsc -p tsconfig.build.json && npm run browser",
     "browser": "webpack --config ./webpack.config.js",
     "prebuild": "rimraf dist",
@@ -24,8 +24,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "yarn.lock"
+    "dist"
   ],
   "license": "MIT",
   "engines": {

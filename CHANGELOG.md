@@ -1,3 +1,12 @@
+## [0.2.5-beta](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.2.4-beta...v0.2.5-beta) (2020-02-15)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复 interfaces 、plugins中类型定义未导出的bug ([2d001f3](https://github.com/CaoMeiYouRen/safe-json-type/commit/2d001f3))
+
+
+
 ## [0.2.4-beta](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.2.3-beta.0...v0.2.4-beta) (2020-02-14)
 
 

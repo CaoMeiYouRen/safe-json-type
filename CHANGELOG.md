@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.0.0...v1.0.1) (2020-02-16)
+
+
+### 🎫 Chores | 其他更新
+
+* 更新safe-json-type-plugins到最新 ([848d311](https://github.com/CaoMeiYouRen/safe-json-type/commit/848d311))
+
+
+
 # [1.0.0](https://github.com/CaoMeiYouRen/safe-json-type/compare/v0.3.0-beta...v1.0.0) (2020-02-15)
 
 

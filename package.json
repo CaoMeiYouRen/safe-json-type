@@ -15,7 +15,6 @@
     "browser": "webpack --config ./webpack.config.js",
     "prebuild": "rimraf dist",
     "commit": "git add . && git cz",
-    "release": "release-it --config ./.release-it.js",
     "changelog": "conventional-changelog -p cmyr-config -i CHANGELOG.md -s -r 0",
     "postchangelog": "npm run commit"
   },
@@ -48,7 +47,6 @@
     "cz-conventional-changelog": "^3.1.0",
     "mocha": "^6.2.2",
     "nyc": "^15.0.0",
-    "release-it": "^12.4.3",
     "rimraf": "^3.0.2",
     "should": "^13.2.3",
     "ts-loader": "^6.2.1",
@@ -62,7 +60,7 @@
     "colors": "^1.4.0",
     "fast-safe-stringify": "^2.0.7",
     "parse-json": "^5.0.0",
-    "safe-json-type-plugins": "^1.0.0"
+    "safe-json-type-plugins": "^1.0.1"
   },
   "config": {
     "commitizen": {

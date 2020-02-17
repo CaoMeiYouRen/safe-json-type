@@ -60,7 +60,7 @@
     "colors": "^1.4.0",
     "fast-safe-stringify": "^2.0.7",
     "parse-json": "^5.0.0",
-    "safe-json-type-plugins": "^1.0.1"
+    "safe-json-type-plugins": "latest"
   },
   "config": {
     "commitizen": {

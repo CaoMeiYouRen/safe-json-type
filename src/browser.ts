@@ -1,4 +1,4 @@
-import { SafeJsonPluginDate ,SafeJsonPlugin, SafeJson } from 'safe-json-type-plugins/dist/browser'
+import { SafeJsonPluginDate, SafeJsonPlugin, SafeJson } from 'safe-json-type-plugins/dist/browser'
 export class SafeJsonType {
     private static plugins: SafeJsonPlugin<SafeJson, any>[] = []
     /**
@@ -23,6 +23,7 @@ export class SafeJsonType {
      * @returns
      */
     static toObject(obj: any) {
+        // const obj = { ...$obj }//复制一份
         if (typeof obj !== 'object' || obj === null) {//类型不为object的或类型为null的都直接返回
             return obj
         }
@@ -52,6 +53,7 @@ export class SafeJsonType {
      * @returns
      */
     static toSafeJson(obj: any) {
+        // const obj = { ...$obj }//复制一份
         if (typeof obj !== 'object' || obj === null) {//类型不为object的或类型为null的都直接返回
             return obj
         }

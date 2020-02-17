@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.0.1...v1.0.2) (2020-02-17)
+
+
+### ✅ Tests | 测试
+
+* 更新测试用例 ([d40968c](https://github.com/CaoMeiYouRen/safe-json-type/commit/d40968c))
+
+
+
 ## [1.0.1](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.0.0...v1.0.1) (2020-02-16)
 
 

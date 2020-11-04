@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SafeJsonType = void 0;
 const browser_1 = require("safe-json-type-plugins/dist/browser");
 class SafeJsonType {
     static use(plugin) {
@@ -17,9 +18,9 @@ class SafeJsonType {
                 }
             }
         }
-        let keys = Object.keys(obj);
+        const keys = Object.keys(obj);
         for (let i = 0; i < keys.length; i++) {
-            let key = keys[i];
+            const key = keys[i];
             obj[key] = this.toObject(obj[key]);
         }
         return obj;
@@ -37,9 +38,9 @@ class SafeJsonType {
                 return plugin.serialize(obj);
             }
         }
-        let keys = Object.keys(obj);
+        const keys = Object.keys(obj);
         for (let i = 0; i < keys.length; i++) {
-            let key = keys[i];
+            const key = keys[i];
             if (key === '__type') {
                 console.warn('(safe-json-type) [warning] "__type" is a reserved field. Don\'t use it unless necessary');
             }

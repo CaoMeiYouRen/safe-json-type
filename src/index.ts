@@ -26,21 +26,21 @@ export class SafeJsonType {
      * @returns
      */
     static toObject(obj: any) {
-        if (typeof obj !== 'object' || obj === null) {//类型不为object的或类型为null的都直接返回
+        if (typeof obj !== 'object' || obj === null) { // 类型不为object的或类型为null的都直接返回
             return obj
         }
-        if (obj.__type) {//obj存在__type属性，认为是safe-json（上面已经排除了null和undefined）
+        if (obj.__type) { // obj存在__type属性，认为是safe-json（上面已经排除了null和undefined）
             for (let i = 0; i < this.plugins.length; i++) {
                 const plugin = this.plugins[i]
-                if (plugin.type === obj.__type) {//匹配到对应类，反序列化
+                if (plugin.type === obj.__type) { // 匹配到对应类，反序列化
                     return plugin.deserialize(obj)
                 }
             }
         }
-        let keys = Object.keys(obj) //数组或对象
-        for (let i = 0; i < keys.length; i++) {//遍历所有key
-            let key = keys[i]
-            obj[key] = this.toObject(obj[key])//递归
+        const keys = Object.keys(obj) // 数组或对象
+        for (let i = 0; i < keys.length; i++) { // 遍历所有key
+            const key = keys[i]
+            obj[key] = this.toObject(obj[key])// 递归
         }
         return obj
     }
@@ -55,26 +55,26 @@ export class SafeJsonType {
      * @returns
      */
     static toSafeJson(obj: any) {
-        if (typeof obj !== 'object' || obj === null) {//类型不为object的或类型为null的都直接返回
+        if (typeof obj !== 'object' || obj === null) { // 类型不为object的或类型为null的都直接返回
             return obj
         }
-        //基本数据类型的封装类也返回本身
+        // 基本数据类型的封装类也返回本身
         if (obj instanceof String || obj instanceof Number || obj instanceof Boolean) {
             return obj
         }
         for (let i = 0; i < this.plugins.length; i++) {
             const plugin = this.plugins[i]
-            if (plugin.condition(obj)) {//匹配到对应类，序列化
+            if (plugin.condition(obj)) { // 匹配到对应类，序列化
                 return plugin.serialize(obj)
             }
         }
-        let keys = Object.keys(obj) //数组或对象
-        for (let i = 0; i < keys.length; i++) {//遍历所有key
-            let key = keys[i]
-            if (key === '__type') {//对使用了保留字段的进行提示
+        const keys = Object.keys(obj) // 数组或对象
+        for (let i = 0; i < keys.length; i++) { // 遍历所有key
+            const key = keys[i]
+            if (key === '__type') { // 对使用了保留字段的进行提示
                 console.warn(colors.yellow('(safe-json-type) [warning] "__type" is a reserved field. Don\'t use it unless necessary'))
             }
-            obj[key] = this.toSafeJson(obj[key])//递归
+            obj[key] = this.toSafeJson(obj[key])// 递归
         }
         return obj
     }
@@ -88,7 +88,7 @@ export class SafeJsonType {
      */
     static parse(str: string) {
         if (typeof str !== 'string') {
-            throw new Error('Argument must be a string') //参数必须为字符串
+            throw new Error('Argument must be a string') // 参数必须为字符串
         }
         try {
             return this.toObject(parseJson(str))

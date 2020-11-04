@@ -24,17 +24,17 @@ module.exports = {
         rules: [
             {
                 test: /\.(ts|tsx)$/,
-                use: 'ts-loader',//配置加载typescript
+                use: 'ts-loader', // 配置加载typescript
                 exclude: /node_modules/
             }
         ]
     },
     resolve: {
-        //路径别名
+        // 路径别名
         alias: {
             '@': path.resolve(__dirname, './src'),
         },
-        //路径别名自动解析确定的扩展
+        // 路径别名自动解析确定的扩展
         extensions: ['.ts', '.tsx', '.js', '.json']
     }
 }

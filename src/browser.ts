@@ -2,7 +2,7 @@ import { SafeJsonPluginDate, SafeJsonPlugin, SafeJson } from 'safe-json-type-plu
 export class SafeJsonType {
     private static plugins: SafeJsonPlugin<SafeJson, any>[] = []
     /**
-     *使用插件，只要初始化一次即可，插件不会去重，所以请勿重复初始化
+     *使用插件，只要初始化一次即可，相同 type 的插件只会载入一个
      *
      * @author CaoMeiYouRen
      * @date 2020-02-13
@@ -10,7 +10,13 @@ export class SafeJsonType {
      * @param {SafeJsonPlugin<SafeJson, any>} plugin
      */
     static use(plugin: SafeJsonPlugin<SafeJson, any>) {
+        if (this.plugins.find(e => {
+            return e.type === plugin.type
+        })) {
+            return this
+        }
         this.plugins.push(plugin)
+        return this
     }
 
     /**

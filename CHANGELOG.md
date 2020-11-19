@@ -1,5 +1,12 @@
 # safe-json-type-plugins
 
+# [1.1.0](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.0.5...v1.1.0) (2020-11-19)
+
+
+### ✨ Features
+
+* 优化插件去重，相同 type 的插件仅载入一次 ([8da7a7b](https://github.com/CaoMeiYouRen/safe-json-type/commit/8da7a7b))
+
 ## [1.0.5](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.0.4...v1.0.5) (2020-11-04)
 
 

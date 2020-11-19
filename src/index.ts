@@ -13,9 +13,7 @@ export class SafeJsonType {
      * @param {SafeJsonPlugin<SafeJson, any>} plugin
      */
     static use(plugin: SafeJsonPlugin<SafeJson, any>) {
-        if (this.plugins.find(e => {
-            return e.type === plugin.type
-        })) {
+        if (this.plugins.find(e => e.type === plugin.type)) {
             return this
         }
         this.plugins.push(plugin)

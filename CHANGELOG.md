@@ -1,5 +1,22 @@
 # safe-json-type-plugins
 
+# [1.2.0](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.1.0...v1.2.0) (2020-11-27)
+
+
+### ♻ Code Refactoring
+
+* 新增 插件重复载入警告 ([7f90473](https://github.com/CaoMeiYouRen/safe-json-type/commit/7f90473))
+
+
+### ✨ Features
+
+* 使用 rollup 重构项目，支持 esm ([6349cca](https://github.com/CaoMeiYouRen/safe-json-type/commit/6349cca)), closes [#12](https://github.com/CaoMeiYouRen/safe-json-type/issues/12)
+
+
+### 🐛 Bug Fixes
+
+* 修复 colors 导入问题 ([6cb1f73](https://github.com/CaoMeiYouRen/safe-json-type/commit/6cb1f73))
+
 # [1.1.0](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.0.5...v1.1.0) (2020-11-19)
 
 

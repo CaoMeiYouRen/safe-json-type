@@ -15,7 +15,7 @@ module.exports = {
     plugins: [
     ],
     parserOptions: {
-        ecmaVersion: new Date().getFullYear() - 1,
+        ecmaVersion: new Date().getFullYear(),
         sourceType: 'module',
         ecmaFeatures: {
             modules: true
@@ -24,6 +24,5 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     rules: {
         'no-console': 0, // 禁止console
-        'comma-dangle': [IS_PROD, 'never']
     }
 }

@@ -3,9 +3,9 @@
 /test/unit/coverage/
 /test/unit/specs/
 /build/
-/test/
+# /test/
 /node_modules/
 *.min.*
 src/public/
 /public/
-*.test.*
+# *.test.*

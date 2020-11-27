@@ -14,6 +14,7 @@ export class SafeJsonType {
      */
     static use(plugin: SafeJsonPlugin<SafeJson, any>) {
         if (this.plugins.find(e => e.type === plugin.type)) {
+            console.warn(colors.yellow(`(safe-json-type) [warning] "${plugin.constructor.name}" repeatedly loaded.`))
             return this
         }
         this.plugins.push(plugin)
@@ -96,7 +97,6 @@ export class SafeJsonType {
         }
         try {
             return this.toObject(parseJson(str))
-            // return this.toObject(JSON.parse(str))
         } catch (error) {
             error.fileName = __filename
             throw error
@@ -113,7 +113,6 @@ export class SafeJsonType {
      * @returns
      */
     static stringify(obj: any, replacer?: (key: string, value: any) => any, space?: string | number) {
-        // return JSON.stringify(this.toSafeJson(obj), replacer, space)
         return safeStringify(this.toSafeJson(obj), replacer, space)
     }
 }

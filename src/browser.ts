@@ -11,6 +11,7 @@ export class SafeJsonType {
      */
     static use(plugin: SafeJsonPlugin<SafeJson, any>) {
         if (this.plugins.find(e => e.type === plugin.type)) {
+            console.warn(`(safe-json-type) [warning] "${plugin.constructor.name}" repeatedly loaded.`)
             return this
         }
         this.plugins.push(plugin)

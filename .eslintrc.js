@@ -7,10 +7,10 @@ module.exports = {
         es6: true,
         commonjs: true,
         node: true,
-        mocha: true
+        mocha: true,
     },
     extends: [
-        'cmyr'
+        'cmyr',
     ],
     plugins: [
     ],
@@ -18,11 +18,11 @@ module.exports = {
         ecmaVersion: new Date().getFullYear(),
         sourceType: 'module',
         ecmaFeatures: {
-            modules: true
-        }
+            modules: true,
+        },
     },
     parser: '@typescript-eslint/parser',
     rules: {
         'no-console': 0, // 禁止console
-    }
+    },
 }

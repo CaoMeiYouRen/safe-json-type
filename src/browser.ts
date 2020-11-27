@@ -1,4 +1,4 @@
-import { SafeJsonPluginDate, SafeJsonPlugin, SafeJson } from 'safe-json-type-plugins/dist/browser'
+import { SafeJsonPluginDate, SafeJsonPlugin, SafeJson } from 'safe-json-type-plugins'
 export class SafeJsonType {
     private static plugins: SafeJsonPlugin<SafeJson, any>[] = []
     /**

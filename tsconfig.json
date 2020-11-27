@@ -10,11 +10,13 @@
         "outDir": "./dist", //重定向输出目录。
         "watch": false, //在监视模式下运行编译器。会监视输出文件，在它们改变时重新编译。
         "removeComments": false, //移除注释
+        "importHelpers": true,
+        "esModuleInterop": true,
+        "declaration": true, //生成类型文件
         "declarationMap": false,
         "strictPropertyInitialization": false,
-        "allowSyntheticDefaultImports": false,
+        "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true, //开启装饰器
-        "declaration": true, //生成类型文件
         "baseUrl": ".",
         "paths": {
             "@/*": [

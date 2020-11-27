@@ -12,7 +12,8 @@
     "test": "mocha -r ts-node/register test/**/*.test.ts -R nyan",
     "deploy-beta": "npm run test && nrm use npm && npm publish --tag beta",
     "deploy": "npm run test && nrm use npm && npm publish",
-    "build": "tsc -p tsconfig.build.json && npm run browser",
+    "build": "cross-env NODE_ENV=production rollup -c",
+    "staging": "cross-env NODE_ENV=development rollup -c",
     "browser": "webpack --config ./webpack.config.js",
     "prebuild": "rimraf dist",
     "commit": "git add . && git cz",
@@ -23,6 +24,7 @@
   "browser": "dist/browser.min.js",
   "jsdelivr": "dist/browser.min.js",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -40,6 +42,9 @@
     "url": "https://github.com/CaoMeiYouRen/safe-json-type.git"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@rollup/plugin-typescript": "^6.1.0",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "@types/mocha": "^8.0.4",
@@ -57,20 +62,19 @@
     "mocha": "^8.2.1",
     "nyc": "^15.1.0",
     "rimraf": "^3.0.2",
+    "rollup": "^2.33.3",
+    "rollup-plugin-terser": "^7.0.2",
     "semantic-release": "^17.3.0",
     "should": "^13.2.3",
-    "ts-loader": "^8.0.11",
     "ts-node": "^9.0.0",
-    "typescript": "^4.1.2",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^4.2.0"
+    "typescript": "^4.1.2"
   },
   "dependencies": {
     "buffer": "^6.0.3",
     "colors": "^1.4.0",
     "fast-safe-stringify": "^2.0.7",
     "parse-json": "^5.1.0",
-    "safe-json-type-plugins": "^1.0.5"
+    "safe-json-type-plugins": "^1.1.0"
   },
   "config": {
     "commitizen": {

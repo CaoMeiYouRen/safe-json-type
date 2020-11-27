@@ -188,6 +188,8 @@ let str = SafeJsonType.stringify(obj);
 2.  本项目没有使用node专属模块，所以也可以在浏览器运行。压缩后的文件见dist/browser.min.js。出于包大小考虑移除了所有非原生依赖，因此当直接通过script引用browser.min.js时不支持buffer对象，如有需要可在模块化构建中使用。
 
     直接通过引用browser.min.js时使用```SafeJsonType.SafeJsonType.stringify(obj)```来调用【前一个SafeJsonType是命名空间，后一个是类名，日后可能会在同一个命名空间下导出多个类】
+    
+    如果是现代浏览器也可以使用 browser.esm.min.js 版本，更为友好
 
 ## 后记
 

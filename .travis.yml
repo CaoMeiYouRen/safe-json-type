@@ -1,5 +1,9 @@
+os: linux
 language: node_js
-node_js: 12
+node_js: 14
+
+install:
+    - yarn
 
 script:
     - npm run lint

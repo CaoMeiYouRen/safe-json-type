@@ -1,6 +1,6 @@
 import safeStringify from 'fast-safe-stringify'
-import parseJson = require('parse-json')
-import colors = require('colors')
+import parseJson from 'parse-json'
+import * as colors from 'colors'
 import { SafeJsonPluginDate, SafeJsonPluginBuffer, SafeJsonPlugin, SafeJson } from 'safe-json-type-plugins'
 export class SafeJsonType {
     private static plugins: SafeJsonPlugin<SafeJson, any>[] = []

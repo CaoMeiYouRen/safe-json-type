@@ -3,7 +3,9 @@ updates:
     - package-ecosystem: npm
       directory: "/"
       schedule:
-          interval: daily
+          interval: "daily"
+          time: "19:00"
+          timezone: "Asia/Shanghai"
       ignore:
           - dependency-name: "webpack"
             versions:

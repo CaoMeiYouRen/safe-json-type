@@ -1,5 +1,12 @@
 # safe-json-type-plugins
 
+## [1.2.1](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.2.0...v1.2.1) (2021-11-28)
+
+
+### 🐛 Bug Fixes
+
+* 优化 rollup 配置 ([7682b2f](https://github.com/CaoMeiYouRen/safe-json-type/commit/7682b2f))
+
 # [1.2.0](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.1.0...v1.2.0) (2020-11-27)
 
 

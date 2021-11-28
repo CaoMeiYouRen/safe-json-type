@@ -13,7 +13,7 @@ export class SafeJsonType {
      * @param {SafeJsonPlugin<SafeJson, any>} plugin
      */
     static use(plugin: SafeJsonPlugin<SafeJson, any>) {
-        if (this.plugins.find(e => e.type === plugin.type)) {
+        if (this.plugins.find((e) => e.type === plugin.type)) {
             console.warn(colors.yellow(`(safe-json-type) [warning] "${plugin.constructor.name}" repeatedly loaded.`))
             return this
         }
@@ -93,7 +93,7 @@ export class SafeJsonType {
      */
     static parse(str: string) {
         if (typeof str !== 'string') {
-            throw new Error('Argument must be a string') // 参数必须为字符串
+            throw new TypeError('Argument must be a string') // 参数必须为字符串
         }
         try {
             return this.toObject(parseJson(str))

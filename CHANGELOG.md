@@ -1,5 +1,12 @@
 # safe-json-type-plugins
 
+## [1.3.1](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.3.0...v1.3.1) (2022-01-25)
+
+
+### 🐛 Bug Fixes
+
+* 优化 对运行环境的判断 ([c575d45](https://github.com/CaoMeiYouRen/safe-json-type/commit/c575d45))
+
 # [1.3.0](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.2.1...v1.3.0) (2022-01-25)
 
 

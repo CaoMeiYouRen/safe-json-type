@@ -7,6 +7,7 @@ import typescript from '@rollup/plugin-typescript'
 import json from '@rollup/plugin-json'
 import analyzer from 'rollup-plugin-analyzer'
 import { dependencies, name } from './package.json'
+import replace from '@rollup/plugin-replace'
 
 const external = Object.keys({ ...dependencies }) // 默认不打包 dependencies, peerDependencies
 const outputName = upperFirst(camelCase(name))// 导出的模块名称 PascalCase
@@ -41,6 +42,15 @@ function getPlugins({ isBrowser = false, isMin = false, isDeclaration = false })
     )
     plugins.push(
         json({}),
+    )
+    plugins.push(
+        replace({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+            'env.NODE_ENV': JSON.stringify(env.NODE_ENV),
+            'process.env.__BROWSER__': JSON.stringify(String(isBrowser)),
+            'process.env.__NODE__': JSON.stringify(String(!isBrowser)),
+            preventAssignment: true,
+        }),
     )
     if (isMin) {
         plugins.push(

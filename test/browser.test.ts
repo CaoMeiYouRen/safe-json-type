@@ -1,6 +1,7 @@
-import { SafeJsonType } from '../src/browser'
+import { SafeJsonType } from '../dist/browser'
 import 'should'
-describe('SafeJsonType', () => {
+
+describe('SafeJsonType - Web', () => {
     it('序列化对象', () => {
         const obj = {
             num: 1024,

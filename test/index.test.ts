@@ -1,6 +1,7 @@
-import { SafeJsonType } from '../src'
+import { SafeJsonType } from '../dist/index'
 import 'should'
-describe('SafeJsonType', () => {
+
+describe('SafeJsonType - Node', () => {
     it('序列化对象', () => {
         const obj = {
             num: 1024,

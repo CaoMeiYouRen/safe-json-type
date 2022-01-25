@@ -1,7 +1,6 @@
-import safeStringify from 'fast-safe-stringify'
-import parseJson from 'parse-json'
-import colors from 'colors'
 import { SafeJsonPluginDate, SafeJsonPluginBuffer, SafeJsonPlugin, SafeJson } from 'safe-json-type-plugins'
+import { Utils, __NODE__ } from './utils'
+
 export class SafeJsonType {
     private static plugins: SafeJsonPlugin<SafeJson, any>[] = []
     /**
@@ -14,7 +13,7 @@ export class SafeJsonType {
      */
     static use(plugin: SafeJsonPlugin<SafeJson, any>) {
         if (this.plugins.find((e) => e.type === plugin.type)) {
-            console.warn(colors.yellow(`(safe-json-type) [warning] "${plugin.constructor.name}" repeatedly loaded.`))
+            Utils.console.warn(`(safe-json-type) [warning] "${plugin.constructor.name}" repeatedly loaded.`)
             return this
         }
         this.plugins.push(plugin)
@@ -77,7 +76,7 @@ export class SafeJsonType {
         for (let i = 0; i < keys.length; i++) { // 遍历所有key
             const key = keys[i]
             if (key === '__type') { // 对使用了保留字段的进行提示
-                console.warn(colors.yellow('(safe-json-type) [warning] "__type" is a reserved field. Don\'t use it unless necessary'))
+                Utils.console.warn('(safe-json-type) [warning] "__type" is a reserved field. Don\'t use it unless necessary')
             }
             obj[key] = this.toSafeJson(obj[key])// 递归
         }
@@ -96,7 +95,7 @@ export class SafeJsonType {
             throw new TypeError('Argument must be a string') // 参数必须为字符串
         }
         try {
-            return this.toObject(parseJson(str))
+            return this.toObject(Utils.JSON.parse(str))
         } catch (error) {
             error.fileName = __filename
             throw error
@@ -113,9 +112,12 @@ export class SafeJsonType {
      * @returns
      */
     static stringify(obj: any, replacer?: (key: string, value: any) => any, space?: string | number) {
-        return safeStringify(this.toSafeJson(obj), replacer, space)
+        return Utils.JSON.stringify(this.toSafeJson(obj), replacer, space)
     }
 }
 
 SafeJsonType.use(new SafeJsonPluginDate())
-SafeJsonType.use(new SafeJsonPluginBuffer())
+
+if (__NODE__) {
+    SafeJsonType.use(new SafeJsonPluginBuffer())
+}

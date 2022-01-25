@@ -1,5 +1,12 @@
 # safe-json-type-plugins
 
+# [1.3.0](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.2.1...v1.3.0) (2022-01-25)
+
+
+### ✨ Features
+
+* 优化跨端性能；优化代码在 Node 和 Web 端的运行 ([6cd3b34](https://github.com/CaoMeiYouRen/safe-json-type/commit/6cd3b34))
+
 ## [1.2.1](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.2.0...v1.2.1) (2021-11-28)
 
 

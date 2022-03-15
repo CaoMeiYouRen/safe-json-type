@@ -1,5 +1,12 @@
 # safe-json-type-plugins
 
+## [1.3.3](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.3.2...v1.3.3) (2022-03-15)
+
+
+### 🐛 Bug Fixes
+
+* 修复 peerDependencies 被打包问题 ([147757e](https://github.com/CaoMeiYouRen/safe-json-type/commit/147757e))
+
 ## [1.3.2](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.3.1...v1.3.2) (2022-03-15)
 
 

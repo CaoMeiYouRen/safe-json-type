@@ -1,5 +1,12 @@
 # safe-json-type-plugins
 
+## [1.3.4](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.3.3...v1.3.4) (2024-06-02)
+
+
+### 🐛 Bug Fixes
+
+* 修复 测试用例的环境变量设置问题；修复 node 运行时的环境变量判断问题 ([c573fa8](https://github.com/CaoMeiYouRen/safe-json-type/commit/c573fa8))
+
 ## [1.3.3](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.3.2...v1.3.3) (2022-03-15)
 
 

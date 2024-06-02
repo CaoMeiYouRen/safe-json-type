@@ -1,4 +1,25 @@
 # safe-json-type
+<p>
+  <a href="https://www.npmjs.com/package/safe-json-type" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/safe-json-type.svg">
+  </a>
+  <img src="https://img.shields.io/badge/node-%3E%3D12-blue.svg" >
+  <a href="https://github.com/CaoMeiYouRen/safe-json-type/actions?query=workflow%3ARelease" target="_blank">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/CaoMeiYouRen/safe-json-type/release.yml?branch=master">
+  </a>
+  <a href="https://app.codecov.io/gh/CaoMeiYouRen/safe-json-type" target="_blank">
+     <img alt="Codecov" src="https://img.shields.io/codecov/c/github/CaoMeiYouRen/safe-json-type">
+  </a>
+  <a href="https://github.com/CaoMeiYouRen/safe-json-type#readme" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/CaoMeiYouRen/safe-json-type/graphs/commit-activity" target="_blank">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  </a>
+  <a href="https://github.com/CaoMeiYouRen/safe-json-type/blob/master/License" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/github/license/CaoMeiYouRen/safe-json-type?color=yellow" />
+  </a>
+</p>
 
 安全的json类型
 

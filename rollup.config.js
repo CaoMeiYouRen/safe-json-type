@@ -135,6 +135,7 @@ export default defineConfig([
             file: 'dist/browser.min.js', // 生成 browser umd
             format: 'umd',
             name: outputName,
+
         },
         plugins: getPlugins({
             isBrowser: true,

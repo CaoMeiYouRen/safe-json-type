@@ -1,4 +1,5 @@
-process.env.__BROWSER__ === 'true'
+import { env } from 'node:process'
+env.__BROWSER__ = 'true'
 globalThis.window = globalThis.window || ({} as any)
 
 import { SafeJsonType } from '../src/browser'

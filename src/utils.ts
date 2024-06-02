@@ -1,5 +1,5 @@
 export const __BROWSER__ = process.env.__BROWSER__ === 'true' || Boolean(globalThis.window)
-export const __NODE__ = process.env.__NODE__ === 'true' || Boolean(globalThis.process && typeof globalThis.process.on === 'function')
+export const __NODE__ = process.env.__NODE__ === 'true' && Boolean(globalThis.process && typeof globalThis.process.on === 'function') && !__BROWSER__
 
 let colors: any
 let parseJson: (input: string | null, reviver?: (key: any, value: any) => any, filepath?: string) => any

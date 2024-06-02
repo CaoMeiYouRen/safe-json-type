@@ -1,4 +1,5 @@
-process.env.__NODE__ === 'true'
+import { env } from 'node:process'
+env.__NODE__ = 'true'
 
 import { SafeJsonType } from '../src/index'
 import 'should'

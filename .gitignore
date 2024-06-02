@@ -22,4 +22,4 @@ yarn-error.log*
 
 .git
 dist
-
+coverage

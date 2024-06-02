@@ -1,4 +1,6 @@
-import { SafeJsonType } from '../dist/index'
+process.env.__NODE__ === 'true'
+
+import { SafeJsonType } from '../src/index'
 import 'should'
 
 describe('SafeJsonType - Node', () => {

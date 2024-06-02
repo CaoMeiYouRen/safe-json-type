@@ -5,10 +5,9 @@
         "noImplicitAny": false, //在表达式和声明上有隐含的'any'类型时报错。
         "allowJs": false, //允许编译js文件
         "checkJs": false, //在 .js文件中报告错误。与 --allowJs配合使用。
-        "sourceMap": false, //用于debug
+        "sourceMap": true, //用于debug
         "rootDir": "./src", //仅用来控制输出的目录结构--outDir。
         "outDir": "./dist", //重定向输出目录。
-        "watch": false, //在监视模式下运行编译器。会监视输出文件，在它们改变时重新编译。
         "removeComments": false, //移除注释
         "importHelpers": true,
         "esModuleInterop": true,

@@ -1,25 +1,19 @@
-name: Release
+name: Test
 on:
   push:
-    branches:
-      - master
-# 仅取消针对当前工作流正在进行的作业或运行
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  pull_request:
+  workflow_dispatch:
 jobs:
-  release:
-    name: Release
+  test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: "8.11"
-      - name: Setup Node.js environment
+      - name: Setup Node.js@lts environment
         uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
@@ -40,7 +34,9 @@ jobs:
       - run: pnpm run lint
       - run: pnpm run build
       - run: pnpm run test
-      # - run: pnpm run test:e2e
-      - env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: pnpm run release
+      - run: pnpm run test:e2e
+      - run: pnpm run test:cov
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

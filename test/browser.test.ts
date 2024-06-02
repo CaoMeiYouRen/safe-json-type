@@ -1,4 +1,7 @@
-import { SafeJsonType } from '../dist/browser'
+process.env.__BROWSER__ === 'true'
+globalThis.window = globalThis.window || ({} as any)
+
+import { SafeJsonType } from '../src/browser'
 import 'should'
 
 describe('SafeJsonType - Web', () => {

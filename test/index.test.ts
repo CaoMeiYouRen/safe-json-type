@@ -3,6 +3,7 @@ env.__NODE__ = 'true'
 
 import { SafeJsonType } from '../src/index'
 import 'should'
+import { SafeJsonPluginDate } from 'safe-json-type-plugins'
 
 describe('SafeJsonType - Node', () => {
     it('序列化对象', () => {
@@ -65,5 +66,13 @@ describe('SafeJsonType - Node', () => {
         (typeof str).should.equal('string')
         const obj2 = SafeJsonType.parse(str);
         (typeof obj2.__type).should.equal('string')
+    })
+    it('parse 的入参必须为字符串', () => {
+        expect(() => SafeJsonType.parse(1 as any)).toThrow('Argument must be a string')
+        expect(() => SafeJsonType.parse(true as any)).toThrow('Argument must be a string')
+    })
+    it('插件不能重复导入', () => {
+        SafeJsonType.use(new SafeJsonPluginDate())
+        expect(() => SafeJsonType.use(new SafeJsonPluginDate())).toBeDefined()
     })
 })

@@ -94,12 +94,7 @@ export class SafeJsonType {
         if (typeof str !== 'string') {
             throw new TypeError('Argument must be a string') // 参数必须为字符串
         }
-        try {
-            return this.toObject(Utils.JSON.parse(str))
-        } catch (error) {
-            error.fileName = __filename
-            throw error
-        }
+        return this.toObject(Utils.JSON.parse(str))
     }
     /**
      *序列化json对象

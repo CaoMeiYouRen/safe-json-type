@@ -1,5 +1,12 @@
 # safe-json-type-plugins
 
+## [1.3.5](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.3.4...v1.3.5) (2024-06-03)
+
+
+### 🐛 Bug Fixes
+
+* 更新测试用例；修复 浏览器环境不存在 __filename 的问题 ([5bbf569](https://github.com/CaoMeiYouRen/safe-json-type/commit/5bbf569))
+
 ## [1.3.4](https://github.com/CaoMeiYouRen/safe-json-type/compare/v1.3.3...v1.3.4) (2024-06-02)
 
 

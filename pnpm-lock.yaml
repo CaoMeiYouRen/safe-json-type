@@ -108,7 +108,7 @@ devDependencies:
     version: 7.0.2(rollup@2.66.0)
   safe-json-type-plugins:
     specifier: ^1.1.0
-    version: 1.1.0
+    version: 1.1.1
   semantic-release:
     specifier: ^19.0.3
     version: 19.0.3
@@ -5800,11 +5800,12 @@ packages:
   /safe-buffer@5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
 
-  /safe-json-type-plugins@1.1.0:
-    resolution: {integrity: sha512-qk4jrYiFybgGu6X/tpfxRPvGkDm9s9GcAcQdBAjDqeQOHE+AJjYGUm51LNSNjwy2ZZnLqpgOhW6IWMNyGYG7Zw==}
+  /safe-json-type-plugins@1.1.1:
+    resolution: {integrity: sha512-qTbe+PVHjdrJB8yyiulEsCvK44O7mSLrHI4ZbeYrXScEY+AIjbAwsWTdsvGezYGd+lHdb6Lk8z4j4zlNnQKVYg==}
     engines: {node: '>=12'}
     dependencies:
       buffer: 6.0.3
+      tslib: 2.6.2
     dev: true
 
   /safer-buffer@2.1.2:

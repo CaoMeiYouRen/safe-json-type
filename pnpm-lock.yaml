@@ -44,8 +44,8 @@ devDependencies:
     specifier: ^5.0.1
     version: 5.0.1(semantic-release@21.0.0)
   '@semantic-release/git':
-    specifier: ^9.0.0
-    version: 9.0.1(semantic-release@21.0.0)
+    specifier: ^10.0.1
+    version: 10.0.1(semantic-release@21.0.0)
   '@types/jest':
     specifier: ^29.5.12
     version: 29.5.12
@@ -1338,13 +1338,13 @@ packages:
     engines: {node: '>=18'}
     dev: true
 
-  /@semantic-release/git@9.0.1(semantic-release@21.0.0):
-    resolution: {integrity: sha512-75P03s9v0xfrH9ffhDVWRIX0fgWBvJMmXhUU0rMTKYz47oMXU5O95M/ocgIKnVJlWZYoC+LpIe4Ye6ev8CrlUQ==}
-    engines: {node: '>=10.18'}
+  /@semantic-release/git@10.0.1(semantic-release@21.0.0):
+    resolution: {integrity: sha512-eWrx5KguUcU2wUPaO6sfvZI0wPafUKAMNC18aXY4EnNcrZL86dEmpNVnC9uMpGZkmZJ9EfCVJBQx4pV4EMGT1w==}
+    engines: {node: '>=14.17'}
     peerDependencies:
-      semantic-release: '>=16.0.0 <18.0.0'
+      semantic-release: '>=18.0.0'
     dependencies:
-      '@semantic-release/error': 2.2.0
+      '@semantic-release/error': 3.0.0
       aggregate-error: 3.1.0
       debug: 4.3.4
       dir-glob: 3.0.1

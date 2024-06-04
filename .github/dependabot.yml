@@ -20,3 +20,6 @@ updates:
       - dependency-name: "eslint"
         versions:
           - ">= 9.0.0"
+      - dependency-name: "parse-json"
+        versions:
+          - ">= 6.0.0"

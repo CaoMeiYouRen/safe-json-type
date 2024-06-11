@@ -16,7 +16,7 @@ dependencies:
     version: 1.4.0
   cz-conventional-changelog-cmyr:
     specifier: ^1.1.0
-    version: 1.1.0
+    version: 1.1.1
   fast-safe-stringify:
     specifier: ^2.0.7
     version: 2.1.1
@@ -2584,8 +2584,8 @@ packages:
       type-fest: 1.4.0
     dev: true
 
-  /cz-conventional-changelog-cmyr@1.1.0:
-    resolution: {integrity: sha512-iFPBWJ0D4mw/CBhNXBvYGwxlxO2SnGUHyEgmxb1mtTMqEt7++w+NF8XPYKm7Eu7b4tCE0BhrVipzIWv9YamG/A==}
+  /cz-conventional-changelog-cmyr@1.1.1:
+    resolution: {integrity: sha512-P4AKDlnpXYQC747QHjpRF4dQ7D8+XQrJ3Jd3uaR2bIt9N54Oje8DGpbdM3aEO6I4x+nwY4eIQmTIWuyArPIeuA==}
     engines: {node: '>=12'}
     dependencies:
       '@lint-md/core': 2.0.0
@@ -6013,6 +6013,7 @@ packages:
   /parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
     engines: {node: '>=6'}
+    requiresBuild: true
     dependencies:
       callsites: 3.1.0
 
@@ -6192,6 +6193,7 @@ packages:
   /punycode@2.3.0:
     resolution: {integrity: sha512-rRV+zQD8tVFys26lAGR9WUuS4iUAngJScM+ZRSKtvl5tKeZ2t5bvdNFdNHBW9FWR4guGHlgmsZ1G7BSm2wTbuA==}
     engines: {node: '>=6'}
+    requiresBuild: true
 
   /pure-rand@6.1.0:
     resolution: {integrity: sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==}
@@ -6458,6 +6460,7 @@ packages:
   /resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
     engines: {node: '>=4'}
+    requiresBuild: true
 
   /resolve-from@5.0.0:
     resolution: {integrity: sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==}

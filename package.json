@@ -97,5 +97,10 @@
     "emojis": true,
     "authorName": false,
     "authorEmail": false
+  },
+  "pnpm": {
+    "overrides": {
+      "word-wrap": "^1.2.5"
+    }
   }
 }

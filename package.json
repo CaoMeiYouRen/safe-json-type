@@ -100,7 +100,8 @@
   },
   "pnpm": {
     "overrides": {
-      "word-wrap": "^1.2.5"
+      "word-wrap": "^1.2.5",
+      "micromatch": "^4.0.8"
     }
   }
 }

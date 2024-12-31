@@ -33,7 +33,7 @@ importers:
     devDependencies:
       '@rollup/plugin-commonjs':
         specifier: ^28.0.0
-        version: 28.0.1(rollup@2.79.2)
+        version: 28.0.2(rollup@2.79.2)
       '@rollup/plugin-json':
         specifier: ^6.1.0
         version: 6.1.0(rollup@2.79.2)
@@ -577,8 +577,8 @@ packages:
     resolution: {integrity: sha512-UA91GwWPhFExt3IizW6bOeY/pQ0BkuNwKjk9iQW9KqxluGCrg4VenZ0/L+2Y0+ZOtme72EVvg6v0zo3AMQRCeA==}
     engines: {node: '>=12'}
 
-  '@rollup/plugin-commonjs@28.0.1':
-    resolution: {integrity: sha512-+tNWdlWKbpB3WgBN7ijjYkq9X5uhjmcvyjEght4NmH5fAU++zfQzAJ6wumLS+dNcvwEZhKx2Z+skY8m7v0wGSA==}
+  '@rollup/plugin-commonjs@28.0.2':
+    resolution: {integrity: sha512-BEFI2EDqzl+vA1rl97IDRZ61AIwGH093d9nz8+dThxJNH8oSoB7MjWvPCX3dkaK1/RCJ/1v/R1XB15FuSs0fQw==}
     engines: {node: '>=16.0.0 || 14 >= 14.17'}
     peerDependencies:
       rollup: ^2.68.0||^3.0.0||^4.0.0
@@ -4701,7 +4701,7 @@ snapshots:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
 
-  '@rollup/plugin-commonjs@28.0.1(rollup@2.79.2)':
+  '@rollup/plugin-commonjs@28.0.2(rollup@2.79.2)':
     dependencies:
       '@rollup/pluginutils': 5.1.0(rollup@2.79.2)
       commondir: 1.0.1

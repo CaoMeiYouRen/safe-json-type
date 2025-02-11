@@ -101,7 +101,8 @@
   "pnpm": {
     "overrides": {
       "word-wrap": "^1.2.5",
-      "micromatch": "^4.0.8"
+      "micromatch": "^4.0.8",
+      "katex": "^0.16.21"
     }
   }
 }
